@@ -750,25 +750,27 @@ public class Recipe extends RecipeProvider {
                 .unlockedBy("has_item", has(Items.COBBLESTONE))
                 .save(consumer);
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, BlockList.LaserHub.get())
-                .define('X', Items.BEACON)
-                .define('Y', ItemList.EmeraldOpiniumCore.get())
-                .define('Z', ItemList.UnstableIngot.get())
-                .define('A', Items.NETHERITE_INGOT)
-                .pattern("ZYZ")
-                .pattern("YXY")
-                .pattern("AAA")
-                .unlockedBy("has_item", has(Items.COBBLESTONE))
-                .save(consumer);
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, BlockList.LaserPort.get())
-                .define('X', Items.GOLD_BLOCK)
-                .define('Y', Items.REDSTONE)
-                .define('Z', ItemList.IronOpiniumCore.get())
-                .pattern(" Y ")
-                .pattern("ZXZ")
-                .pattern("YYY")
-                .unlockedBy("has_item", has(Items.COBBLESTONE))
-                .save(consumer);
+        // Deprecated
+
+//        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, BlockList.LaserHub.get())
+//                .define('X', Items.BEACON)
+//                .define('Y', ItemList.EmeraldOpiniumCore.get())
+//                .define('Z', ItemList.UnstableIngot.get())
+//                .define('A', Items.NETHERITE_INGOT)
+//                .pattern("ZYZ")
+//                .pattern("YXY")
+//                .pattern("AAA")
+//                .unlockedBy("has_item", has(Items.COBBLESTONE))
+//                .save(consumer);
+//        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, BlockList.LaserPort.get())
+//                .define('X', Items.GOLD_BLOCK)
+//                .define('Y', Items.REDSTONE)
+//                .define('Z', ItemList.IronOpiniumCore.get())
+//                .pattern(" Y ")
+//                .pattern("ZXZ")
+//                .pattern("YYY")
+//                .unlockedBy("has_item", has(Items.COBBLESTONE))
+//                .save(consumer);
 
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, BlockList.EtherealGlass.get(), 8)
                 .define('X', Items.GLASS)
