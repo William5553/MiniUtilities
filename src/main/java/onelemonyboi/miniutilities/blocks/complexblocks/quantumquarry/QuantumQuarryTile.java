@@ -13,6 +13,7 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.biome.Biomes;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.common.capabilities.ForgeCapabilities;
@@ -129,10 +130,14 @@ public class QuantumQuarryTile extends TileBase implements MenuProvider, RenderI
 
     private ArrayList<ItemStack> generateItemStacks() {
         if (level == null) return new ArrayList<>();
+        if (ForgeRegistries.BIOMES.getKey(level.getBiome(getBlockPos()).value()) != null) {
+            String biomeStr = ForgeRegistries.BIOMES.getKey(level.getBiome(getBlockPos()).value()).toString();
+        }
+        else {
+            String biomeStr = Biomes.PLAINS.toString();
+        }
 
-        String biomeStr = ForgeRegistries.BIOMES.getKey(level.getBiome(getBlockPos()).value()).toString();
         String dimensionStr = level.dimension().location().toString();
-
 
         RandomChooser<QuantumQuarryJSON.OreInfo> randomOreChooser = QuantumQuarryJSON.randomOreChooser;
         Predicate<QuantumQuarryJSON.OreInfo> blacklist = (oreInfo) -> !oreInfo.biomes.isEmpty() && !oreInfo.biomes.contains(biomeStr);
