@@ -130,11 +130,12 @@ public class QuantumQuarryTile extends TileBase implements MenuProvider, RenderI
 
     private ArrayList<ItemStack> generateItemStacks() {
         if (level == null) return new ArrayList<>();
+        String biomeStr;
         if (ForgeRegistries.BIOMES.getKey(level.getBiome(getBlockPos()).value()) != null) {
-            String biomeStr = ForgeRegistries.BIOMES.getKey(level.getBiome(getBlockPos()).value()).toString();
+            biomeStr = ForgeRegistries.BIOMES.getKey(level.getBiome(getBlockPos()).value()).toString();
         }
         else {
-            String biomeStr = Biomes.PLAINS.toString();
+            biomeStr = Biomes.PLAINS.toString();
         }
 
         String dimensionStr = level.dimension().location().toString();

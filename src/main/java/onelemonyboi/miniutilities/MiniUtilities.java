@@ -29,6 +29,7 @@ import onelemonyboi.miniutilities.items.enchantments.ExperienceHarvesterHandler;
 import onelemonyboi.miniutilities.items.enchantments.ShotgunHandler;
 import onelemonyboi.miniutilities.items.unstable.UnstableShears;
 import onelemonyboi.miniutilities.misc.KeyBindingsHandler;
+import onelemonyboi.miniutilities.misc.UnstableArmorHandler;
 import onelemonyboi.miniutilities.packets.Packet;
 import onelemonyboi.miniutilities.proxy.ClientProxy;
 import onelemonyboi.miniutilities.proxy.IProxy;
@@ -73,6 +74,7 @@ public class MiniUtilities {
         EVENT_BUS.addListener(Kikoku::AnvilUpdateEvent);
         EVENT_BUS.addListener(Kikoku::AnvilRepairEvent);
         EVENT_BUS.addListener(KeyBindingsHandler::keybinds);
+        EVENT_BUS.addListener(UnstableArmorHandler::unstableArmor);
         EVENT_BUS.addListener(GoldenLasso::onRightClick);
         EVENT_BUS.addListener(MechanicalMinerBlock::PlayerInteractEvent);
         EVENT_BUS.addListener(MechanicalPlacerBlock::PlayerInteractEvent);

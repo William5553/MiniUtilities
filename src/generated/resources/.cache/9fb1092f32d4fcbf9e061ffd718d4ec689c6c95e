@@ -1,4 +1,4 @@
-// 1.20.1	2023-07-11T23:44:05.1195548	Recipes
+// 1.20.1	2024-04-03T10:46:30.8637567	Recipes
 ed355ed6736579317d02e621d30214ad02a20ef2 data/minecraft/advancements/recipes/combat/netherite_spikes_smithing.json
 cb9e6e0ddf498dc400e598e7c25263746dfdb4cf data/minecraft/recipes/netherite_spikes_smithing.json
 d060152ce03a7e62249f2773f047e5b96868b1a1 data/miniutilities/advancements/recipes/misc/angel_block.json
@@ -58,8 +58,6 @@ f3bcfedd6d38354d676aa5494fb09ed202bebdd6 data/miniutilities/advancements/recipes
 1d9108b760df46d23d8a7ba6fdc79a158cb30956 data/miniutilities/advancements/recipes/misc/iron_spikes.json
 4bc34f02aa32b4a58efd1aa317898af8f6a3e81d data/miniutilities/advancements/recipes/misc/kikoku.json
 be0fbfcdc73632c32e2ff287aa346b5b3d9abe08 data/miniutilities/advancements/recipes/misc/lapis_lamp.json
-6227d43675998c3f7023719562039139f1c53465 data/miniutilities/advancements/recipes/misc/laser_hub.json
-40651b6402b84f3a9a879e1d83a23ad95a6187f3 data/miniutilities/advancements/recipes/misc/laser_port.json
 3eaa531bd084ccc3edeba929a1d1b6c167ba4f24 data/miniutilities/advancements/recipes/misc/light_blue_lapis_caelestis.json
 78131312849ee5067ddf245df360d581dbc6dbb2 data/miniutilities/advancements/recipes/misc/light_gray_lapis_caelestis.json
 ef523d86de70172980ebda5e78de4792b2c0f310 data/miniutilities/advancements/recipes/misc/lime_lapis_caelestis.json
@@ -165,8 +163,6 @@ e987928bb527cf21da4a491c00c01b4c23f222c0 data/miniutilities/recipes/infused_helm
 490f8c58535212449c9ee5a361cee6d3b9dc562b data/miniutilities/recipes/iron_spikes.json
 d40298679e5f2f918f552b86176a8cb4d91857f2 data/miniutilities/recipes/kikoku.json
 7fa01944fbcf07aceebb215c7326152d086ff041 data/miniutilities/recipes/lapis_lamp.json
-15ca08559d0fc8ba936901ab08d0934e2d23c314 data/miniutilities/recipes/laser_hub.json
-85a458bde501c1935b17b529231fdb5de0919f8f data/miniutilities/recipes/laser_port.json
 b396129552616cdf7de7df929b3576504abb400e data/miniutilities/recipes/light_blue_lapis_caelestis.json
 ff5556ddb912696d93c1b6541ebcab65f0369678 data/miniutilities/recipes/light_gray_lapis_caelestis.json
 f9cd63f25ec28f42777b07a70ce763c38f6b1282 data/miniutilities/recipes/lime_lapis_caelestis.json

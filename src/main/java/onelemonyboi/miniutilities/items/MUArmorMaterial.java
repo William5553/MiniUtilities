@@ -18,7 +18,7 @@ public enum MUArmorMaterial implements ArmorMaterial {
     UNSTABLE(MiniUtilities.MOD_ID + ":unstable", 0, new int[]{3, 6, 8, 3}, 20, SoundEvents.ARMOR_EQUIP_DIAMOND, 1.0F, 0.1F, () -> {
         return Ingredient.of(ItemList.UnstableIngot.get());
     }),
-    INFUSEDUNSTABLE(MiniUtilities.MOD_ID + ":infused", 0, new int[]{6, 12, 16, 6}, 50, net.minecraft.sounds.SoundEvents.ARMOR_EQUIP_NETHERITE, 6.0F, 0.5F, () -> {
+    INFUSEDUNSTABLE(MiniUtilities.MOD_ID + ":infused", 0, new int[]{12, 24, 32, 12}, 514, net.minecraft.sounds.SoundEvents.ARMOR_EQUIP_NETHERITE, 12.0F, 6F, () -> {
         return Ingredient.of(ItemList.UnstableIngot.get());
     }),
     BOOSTER("booster", 64, new int[]{2, 5, 6, 2}, 9, SoundEvents.ARMOR_EQUIP_IRON, 0.0F, 0.0F, () -> {
