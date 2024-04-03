@@ -7,6 +7,7 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.entity.MobSpawnType;
@@ -47,6 +48,7 @@ public class GoldenLasso extends Item {
 
     public static void onRightClick(PlayerInteractEvent.EntityInteract event) {
         if (!(event.getItemStack().getItem() instanceof GoldenLasso)) return;
+        if (event.getTarget() instanceof Player) return;
         CompoundTag nbt = event.getTarget().serializeNBT();
         if (event.getItemStack().getTag() == null) event.getItemStack().setTag(new CompoundTag());
         event.getItemStack().getTag().put("EntityTag", nbt);
