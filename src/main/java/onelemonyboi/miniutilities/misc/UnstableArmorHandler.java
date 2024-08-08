@@ -1,6 +1,5 @@
 package onelemonyboi.miniutilities.misc;
 
-import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.player.Player;
@@ -18,9 +17,8 @@ public class UnstableArmorHandler {
 
     public static void unstableArmor(LivingEquipmentChangeEvent event) {
         if (event.getEntity() instanceof Player player) {
-            EquipmentSlot slot = event.getSlot();
             // if not armour slot, return
-            if (slot != EquipmentSlot.HEAD && slot != EquipmentSlot.CHEST && slot != EquipmentSlot.LEGS && slot != EquipmentSlot.FEET) return;
+            if (!event.getSlot().isArmor()) return;
 
             long unstableCount = player.getInventory().armor.stream()
                     .filter(x -> x.getItem() instanceof ArmorItem)
@@ -28,24 +26,32 @@ public class UnstableArmorHandler {
                     .filter(x -> x.getMaterial().equals(MUArmorMaterial.INFUSEDUNSTABLE))
                     .count();
 
-            if (unstableCount >= 4) {
-                player.getAbilities().mayfly = true;
-                player.getAbilities().flying = true;
-                if (player.getAttribute(Attributes.MOVEMENT_SPEED).getModifier(SPEED_BOOST_ID) == null) {
-                    player.getAttribute(Attributes.MOVEMENT_SPEED).addTransientModifier(SPEED_BOOST);
-                }
+            if (event.getFrom().getItem() instanceof ArmorItem) {
+                ArmorItem armorItem = (ArmorItem) event.getFrom().getItem();
 
-                player.onUpdateAbilities();
+                if (armorItem.getMaterial().equals(MUArmorMaterial.INFUSEDUNSTABLE) && unstableCount < 4) {
+                    if (!player.isCreative() && !player.isSpectator() && !isEquipped(player)) {
+                        player.getAbilities().mayfly = false;
+                        player.getAbilities().flying = false;
+                    }
+                    if (player.getAttribute(Attributes.MOVEMENT_SPEED).getModifier(SPEED_BOOST_ID) != null) {
+                        player.getAttribute(Attributes.MOVEMENT_SPEED).removeModifier(SPEED_BOOST);
+                    }
+                    player.onUpdateAbilities();
+                }
             }
-            else {
-                if (!player.isCreative() && !player.isSpectator() && !isEquipped(player)) {
-                    player.getAbilities().mayfly = false;
-                    player.getAbilities().flying = false;
+            if (event.getTo().getItem() instanceof ArmorItem) {
+                ArmorItem armorItem = (ArmorItem) event.getTo().getItem();
+
+                if (armorItem.getMaterial().equals(MUArmorMaterial.INFUSEDUNSTABLE) && unstableCount >= 4) {
+                    player.getAbilities().mayfly = true;
+                    player.getAbilities().flying = true;
+                    if (player.getAttribute(Attributes.MOVEMENT_SPEED).getModifier(SPEED_BOOST_ID) == null) {
+                        player.getAttribute(Attributes.MOVEMENT_SPEED).addTransientModifier(SPEED_BOOST);
+                    }
+
+                    player.onUpdateAbilities();
                 }
-                if (player.getAttribute(Attributes.MOVEMENT_SPEED).getModifier(SPEED_BOOST_ID) != null) {
-                    player.getAttribute(Attributes.MOVEMENT_SPEED).removeModifier(SPEED_BOOST);
-                }
-                player.onUpdateAbilities();
             }
         }
     }
