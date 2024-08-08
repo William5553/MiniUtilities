@@ -9,7 +9,6 @@ import net.minecraft.world.item.Item;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.capabilities.ICapabilityProvider;
 import net.minecraftforge.common.util.LazyOptional;
-import onelemonyboi.miniutilities.CreativeTab;
 import onelemonyboi.miniutilities.init.ItemList;
 import top.theillusivec4.curios.api.CuriosApi;
 import top.theillusivec4.curios.api.CuriosCapability;
@@ -39,15 +38,15 @@ public class AngelRing extends Item {
 
             @Override
             public void onEquip(SlotContext slotContext, net.minecraft.world.item.ItemStack prevStack) {
-                if (slotContext.getWearer() instanceof Player) {
-                    startFlying((Player) slotContext.getWearer());
+                if (slotContext.entity() instanceof Player) {
+                    startFlying((Player) slotContext.entity());
                 }
             }
 
             @Override
-            public void onUnequip(SlotContext slotContext, net.minecraft.world.item.ItemStack prevStack) {
-                if (slotContext.getWearer() instanceof Player) {
-                    stopFlying((Player) slotContext.getWearer());
+            public void onUnequip(SlotContext slotContext, net.minecraft.world.item.ItemStack newStack) {
+                if (slotContext.entity() instanceof Player) {
+                    stopFlying((Player) slotContext.entity());
                 }
             }
 
@@ -67,9 +66,9 @@ public class AngelRing extends Item {
             }
 
             @Override
-            public void curioTick(String identifier, int index, net.minecraft.world.entity.LivingEntity livingEntity) {
-                if (livingEntity instanceof Player) {
-                    Player player = ((Player) livingEntity);
+            public void curioTick(SlotContext slotContext) {
+                if (slotContext.entity() instanceof Player) {
+                    Player player = ((Player) slotContext.entity());
                     if (!player.getAbilities().mayfly) {
                         startFlying(player);
                     }
