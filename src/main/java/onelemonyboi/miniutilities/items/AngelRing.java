@@ -76,13 +76,15 @@ public class AngelRing extends Item {
             }
 
             @Override
-            public boolean canEquip(String identifier, LivingEntity entityLivingBase) {
-                return !CuriosApi.getCuriosHelper().findEquippedCurio(ItemList.BaseAngelRing.get(), entityLivingBase).isPresent()
-                        && !CuriosApi.getCuriosHelper().findEquippedCurio(ItemList.BatAngelRing.get(), entityLivingBase).isPresent()
-                        && !CuriosApi.getCuriosHelper().findEquippedCurio(ItemList.GoldAngelRing.get(), entityLivingBase).isPresent()
-                        && !CuriosApi.getCuriosHelper().findEquippedCurio(ItemList.PeacockAngelRing.get(), entityLivingBase).isPresent()
-                        && !CuriosApi.getCuriosHelper().findEquippedCurio(ItemList.EnderDragonAngelRing.get(), entityLivingBase).isPresent()
-                        && !CuriosApi.getCuriosHelper().findEquippedCurio(ItemList.FeatherAngelRing.get(), entityLivingBase).isPresent();
+            public boolean canEquip(SlotContext slotContext) {
+                LivingEntity player = slotContext.entity();
+
+                return CuriosApi.getCuriosHelper().findFirstCurio(player, ItemList.BaseAngelRing.get()).isEmpty()
+                        && CuriosApi.getCuriosHelper().findFirstCurio(player, ItemList.BatAngelRing.get()).isEmpty()
+                        && CuriosApi.getCuriosHelper().findFirstCurio(player, ItemList.GoldAngelRing.get()).isEmpty()
+                        && CuriosApi.getCuriosHelper().findFirstCurio(player, ItemList.PeacockAngelRing.get()).isEmpty()
+                        && CuriosApi.getCuriosHelper().findFirstCurio(player, ItemList.EnderDragonAngelRing.get()).isEmpty()
+                        && CuriosApi.getCuriosHelper().findFirstCurio(player, ItemList.FeatherAngelRing.get()).isEmpty();
             }
         };
 
